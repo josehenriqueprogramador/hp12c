@@ -1,51 +1,134 @@
-#MainMenu, footer, header {visibility: hidden;}
-.stApp { background: #1a1a1a; }
+/* Esconde elementos nativos do Streamlit para focar na calculadora */
+#MainMenu, footer, header {
+    visibility: hidden;
+}
 
+/* Fundo da aplicação */
+.stApp {
+    background: #1a1a1a;
+}
+
+/* Container principal da HP 12C */
 .calc-container {
     background: #2b2b2b;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 15px;
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     margin: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+    border: 1px solid #444;
 }
 
+/* Indicador de função (f ou g) no topo do visor */
 .mod-indicator {
     color: orange;
-    font-size: 10px;
-    height: 14px;
+    font-size: 11px;
+    height: 16px;
     font-family: 'Courier New', monospace;
-    padding-left: 5px;
+    padding-left: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* Visor LCD Verde Oliva */
 .display {
     background: #9fbfa0;
     color: #1a1a1a;
     font-family: 'Courier New', monospace;
-    font-size: 34px;
+    font-size: 32px;
     text-align: right;
-    padding: 10px 15px;
-    border-radius: 4px;
-    box-shadow: inset 2px 2px 8px #6d8f6e;
+    padding: 12px 18px;
+    border-radius: 5px;
     margin-bottom: 20px;
-    min-height: 60px;
-    overflow: hidden;
+    box-shadow: inset 3px 3px 10px #6d8f6e, 0px 4px 10px rgba(0,0,0,0.3);
+    min-height: 65px;
+    border: 2px solid #7a9a7b;
 }
 
+/* Estilização geral dos botões do Streamlit */
 div.stButton > button {
     background: #3a3a3a !important;
     color: white !important;
-    height: 40px !important;
-    padding: 0px !important;
-    font-size: 13px !important;
+    border-radius: 6px !important;
+    height: 48px !important;
+    width: 100% !important;
     border: none !important;
-    box-shadow: inset 1px 1px 0px #555, 1px 1px 3px #000 !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    box-shadow: inset 1px 1px 0px #555, 2px 2px 5px #000 !important;
+    transition: all 0.1s;
+    padding: 0px !important;
 }
 
-.f-btn button { background: orange !important; color: black !important; font-weight: bold !important;}
-.g-btn button { background: #6ec1ff !important; color: black !important; font-weight: bold !important;}
-.enter-btn button { background: #4a6fa5 !important; height: 85px !important; line-height: 70px !important;}
+/* Efeito de clique (botão afunda) */
+div.stButton > button:active {
+    transform: translateY(2px);
+    box-shadow: inset 2px 2px 5px #000 !important;
+}
 
-.top-lab { color: orange; font-size: 8px; font-weight: bold; display: block; text-align: center; height: 12px; overflow: hidden;}
-.bot-lab { color: #6ec1ff; font-size: 8px; font-weight: bold; display: block; text-align: center; height: 12px;}
+/* Botão ENTER (Azul e verticalmente maior) */
+.enter-btn button {
+    background: #4a6fa5 !important;
+    height: 105px !important; /* Altura para ocupar duas linhas */
+    line-height: 90px !important;
+    font-size: 16px !important;
+}
+
+/* Botão Modificador Laranja (f) */
+.f-btn button {
+    background: #ff9800 !important;
+    color: black !important;
+}
+
+/* Botão Modificador Azul (g) */
+.g-btn button {
+    background: #6ec1ff !important;
+    color: black !important;
+}
+
+/* Labels das funções secundárias (Laranja e Azul) */
+.top-lab {
+    color: #ff9800;
+    font-size: 9px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bot-lab {
+    color: #6ec1ff;
+    font-size: 9px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 13px;
+    text-transform: uppercase;
+}
+
+/* Tratamento de Erro no Visor */
+.display-error {
+    color: #cc0000 !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Responsividade para telas muito pequenas (Termux Mobile) */
+@media (max-width: 400px) {
+    .calc-container {
+        padding: 10px;
+    }
+    .display {
+        font-size: 26px;
+        padding: 8px 12px;
+    }
+    div.stButton > button {
+        height: 42px !important;
+        font-size: 12px !important;
+    }
+    .enter-btn button {
+        height: 95px !important;
+    }
+}
