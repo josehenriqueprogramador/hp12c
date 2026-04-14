@@ -1,0 +1,61 @@
+/* style.css */
+#MainMenu, footer, header {visibility: hidden;}
+
+.stApp {
+    background: #1a1a1a;
+}
+
+.calc-container {
+    background: #2b2b2b;
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.mod-indicator {
+    color: orange;
+    font-size: 12px;
+    height: 15px;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.display {
+    background: #9fbfa0;
+    color: #1a1a1a;
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    text-align: right;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: inset 2px 2px 8px #6d8f6e;
+    min-height: 50px;
+}
+
+/* Botões Streamlit Customizados */
+div.stButton > button {
+    background: #3a3a3a !important;
+    color: white !important;
+    border-radius: 6px !important;
+    height: 60px !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: inset 1px 1px 0px #555, 2px 2px 5px #000 !important;
+    transition: all 0.1s;
+}
+
+div.stButton > button:active {
+    transform: translateY(2px);
+    box-shadow: none !important;
+}
+
+/* Cores dos Modificadores */
+.f-btn button { background: orange !important; color: black !important; font-weight: bold !important; }
+.g-btn button { background: #6ec1ff !important; color: black !important; font-weight: bold !important; }
+
+.top-lab { color: orange; font-size: 10px; font-weight: bold; display: block; text-align: center; }
+.bot-lab { color: #6ec1ff; font-size: 10px; font-weight: bold; display: block; text-align: center; }
